@@ -37,3 +37,20 @@ console.log(arr1, arr2, arr3, arr4);
 //tuple
 let tupleVar: [string, number] = ["Age", 30];
 console.log(tupleVar);
+
+//typeScript functions
+const add = (a: number, b: number): number =>{
+  return a+b;
+}
+console.log(add(5,10));
+
+const calculate = (a: number, b?: number): string => {
+  return "Some result";
+}
+console.log(calculate(5));
+//console.log(calculate(5,10));
+const detail = (name: string = "Unknown", age: number = 0) =>{
+  return `Name: ${name}, Age: ${age}`;
+}
+console.log(detail()); //auto return type
+console.log(detail("Alice", 20));
