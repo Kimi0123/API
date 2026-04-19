@@ -25,3 +25,15 @@ let unionVar: string | number = "Union Type";
 unionVar = 100;
 //unionVar = true; //cannot
 console.log(unionVar, typeof unionVar);
+
+//[]
+let arr1: number[] = [1,2,3];
+//using Array generic type
+let arr2: Array<string> = ["a", "b", "c"];
+let arr3: (string | number) [] = ["a", 1 , "b", 2];
+let arr4: any[] = [1, "two", true];
+console.log(arr1, arr2, arr3, arr4);
+
+//tuple
+let tupleVar: [string, number] = ["Age", 30];
+console.log(tupleVar);
