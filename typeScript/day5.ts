@@ -54,3 +54,33 @@ const detail = (name: string = "Unknown", age: number = 0) =>{
 }
 console.log(detail()); //auto return type
 console.log(detail("Alice", 20));
+
+const fruits: string[] =["Apple", "Cherry", "Kiwi", "Grapes", "Fig"];
+//create a function -> filterFruits that takes array of string 
+//and add number as parameters -> default number is 3
+//and returns array of string with length greater than  number
+
+//create a function -> countFruits that takes array of string
+//and return number of fruits with length greater than 2
+
+//create a function -> findFruits that takes array of String, search String
+//and returns first fruit found, findFruits must be Promise fn
+//resolve if found, reject if not found
+function filterFruits(fruits: string[], num: number = 3): string[] {
+  return fruits.filter(fruit => fruit.length > num);
+}
+
+function countFruits(fruits: string[]): number {
+  return fruits.filter(fruit => fruit.length > 2).length;
+}
+
+function findFruits(fruits: string[], search: string): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const index = fruits.findIndex(fruit => fruit.toLowerCase().includes(search.toLowerCase()));
+    if (index !== -1) {
+      resolve(fruits[index]);
+    } else {
+      reject(new Error('Fruit not found'));
+    }
+  });
+}
