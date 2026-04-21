@@ -98,4 +98,16 @@ const complexObj: ComplexType = {
   square: new Square(5),
   userDetails: { username: "Dave", email: "dave@gmail.com", isActive: true }
 }
-console.log(complexObj);
+console.log(complexObj.square.area());
+
+type PhoneType ={title: string}
+type NetworkType = {provider: string}
+
+type CallType = PhoneType | NetworkType; //union type
+const ct1: CallType = {title: "iPhone"};
+const ct2: CallType = {provider: "Verizon"};
+console.log(ct1, ct2);
+
+type MobileType = PhoneType & NetworkType; //intersection type
+const mt1: MobileType = {title: "iPhone", provider: "Verizon"}; //both attributes must be present
+console.log(mt1);
