@@ -141,4 +141,45 @@ const res2: IApiResponse<UserInterface, string> = {
 }
 console.log(res1, res2);
 
+const arr1 : Array<string> = ["a", "b", "c"]; //generic array type
+console.log(arr1);
+
+//Useful type generic
+type Category = {
+  title: string;
+  id: number;
+  status?: string;
+  isParent?: boolean;
+}
+
+const gen1: Required<Category> = 
+{title: "Electronics", id: 1, status: "active", isParent: true} //all properties are required
+const gen2: Partial<Category> = {title: "B"} //all properties are optional
+const gen3: Readonly<Category> = {title: "C", id: 3} //all properties are readonly
+//gen3.id = "D"; //cannot change readonly property
+const gen4: Pick<Category, "title" | "status"> = 
+{title: "D", status: "inactive"} //only title and status properties are picked
+const gen5: Omit<Category, "title" | "isParent"> = 
+{id: 5}; //omit title and isParent
+console.log(gen1, gen2, gen3, gen4, gen5);
+
+// Task - fill the data
+const t1: Required<Pick<Category, "title" | "id">> = {
+      title: "E", id: 6     
+
+};
+
+const t2: Omit<Pick<Category, "title" | "id">, "status"> ={
+    title: "F", id: 7
+    
+}
+const t3: Pick<Omit<Category, "isParent">, "title" | "status"> & {
+    price: number | number[];
+    description: string | string[] | ProductType;
+} = {
+    title: "G", status: "active", price: 99.99, description: "A category"
+}
+console.log(t1, t2, t3);
+
+
 
