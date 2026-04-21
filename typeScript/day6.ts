@@ -119,3 +119,26 @@ const genericFn = <T>(arg: T): T => {
 }
 genericFn<string>("Hello"); //<T> is replacer 
 genericFn<number>(123); //<T> is replaced by number
+
+interface IApiResponse<T, K>{
+  success : boolean;
+  message: string;
+  data: T;
+  error?: K;
+}
+
+const res1: IApiResponse<ProductType, string> = {
+  success: true,
+  message: "Product fetched successfully",
+  data: { id: 1, title: "Laptop", price: 999.99 }
+}
+
+const res2: IApiResponse<UserInterface, string> = {
+  success: false,
+  message: "Failed to fecth product",
+  data: { username: "Eve", email: "eve@gmail.com", isActive: false },
+  error: "Product Found"
+}
+console.log(res1, res2);
+
+
