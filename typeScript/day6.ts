@@ -108,6 +108,14 @@ const ct1: CallType = {title: "iPhone"};
 const ct2: CallType = {provider: "Verizon"};
 console.log(ct1, ct2);
 
-type MobileType = PhoneType & NetworkType; //intersection type
+type MobileType = PhoneType & NetworkType; //intersection type "&" means both types must be satisfied
 const mt1: MobileType = {title: "iPhone", provider: "Verizon"}; //both attributes must be present
 console.log(mt1);
+
+//Generic- Type Injection
+const genericFn = <T>(arg: T): T => {
+  console.log(arg, typeof arg);
+  return arg;
+}
+genericFn<string>("Hello"); //<T> is replacer 
+genericFn<number>(123); //<T> is replaced by number
