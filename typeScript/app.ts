@@ -3,7 +3,8 @@ import express, {Application, Request, Response} from "express";
 const app: Application = express();
 const PORT: number = 8089;
 
-app.get("/", (req: Request, res: Response) => {//callback function
+app.get("/",//path
+   (req: Request, res: Response) => {//callback function
   res.send("Hello Typescript with Express!");
 });
 
